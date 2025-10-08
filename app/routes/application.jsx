@@ -2,16 +2,8 @@ import { useLoaderData, useNavigate, redirect } from "react-router";
 import { FileText, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { getStudent } from "../models/newStudents";
-import { getSession } from "../sessions"; // <--- added
 
 export async function loader({ request }) {
-  const session = await getSession(request.headers.get("Cookie")); // <--- added
-  const user = session.get("user");
-
-  if (!user || user.role !== "admin") {
-    throw redirect("/login");
-  }
-
   const results = await getStudent();
   const applications = results.map((item) => ({
     _id: item._id.toString(),
