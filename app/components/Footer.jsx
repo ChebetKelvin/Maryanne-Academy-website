@@ -73,19 +73,19 @@ export default function Footer() {
             <li className="flex items-center gap-3">
               <FaPhoneAlt className="text-[#41a539]" />
               <a
-                href="tel:+254712345678"
+                href="tel:+254721395631"
                 className="hover:text-[#e32225] transition"
               >
-                +254 712 345 678
+                0721395631
               </a>
             </li>
             <li className="flex items-center gap-3">
               <FaEnvelope className="text-[#41a539]" />
               <a
-                href="mailto:info@maryanneacademy.ac.ke"
+                href="mailto:maryaneschool@yahoo.com"
                 className="hover:text-[#e32225] transition"
               >
-                info@maryanneacademy.ac.ke
+                maryaneschool@yahoo.com
               </a>
             </li>
           </ul>
