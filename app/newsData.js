@@ -22,25 +22,20 @@ You can complete your application conveniently online or visit the school’s ad
   },
   {
     id: 2,
-    image: "/dance.jpg",
-    title: "Annual Fun & Sports Day",
-    date: "September 2025",
+    image:
+      "https://plus.unsplash.com/premium_photo-1677572452964-91e968d02d6a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=735",
+    title: "Annual Graduation ceremony",
+    date: "October 2025",
     desc: `
-The much-awaited **Annual Fun & Sports Day** at Maryanne Academy was an incredible success!  
-Held on a bright September morning, the event brought together students, parents, and teachers in a celebration of *talent, teamwork, and school spirit*.
-
-The day featured various activities including:
-- 🏃 Track and field events  
-- ⚽ Ball games and relays  
-- 🎯 Sack races and fun challenges  
-
-Learners showcased not only their athletic abilities but also cooperation and discipline — values we uphold as part of our holistic education approach.
-
-Parents cheered from the stands, creating a lively and encouraging atmosphere for all participants.  
-The highlight of the day was the **Inter-Class Relay Competition**, which ended with joyous celebrations and medals awarded to outstanding performers.
-
-We extend our sincere appreciation to everyone who took part and helped make this event memorable.  
-We look forward to next year’s edition with even more enthusiasm!
+We are excited to announce that Maryanne Academy will be hosting its **Annual Graduation Ceremony** on **Friday, 20th December 2025**.  
+This special event celebrates the achievements of our graduating learners and marks the culmination of their hard work and dedication throughout the year.},
+The ceremony will feature inspiring speeches, cultural performances, and the awarding of certificates to our graduates.  
+We invite parents, guardians, and the community to join us in honoring our learners' accomplishments and supporting their transition to the next phase of their educational journey.
+**Event Details:**
+- 📅 Date: Thursday, 16th October 2025
+- 🕒 Time: 10:00 AM
+- 📍 Venue: Maryanne Academy School Grounds
+We look forward to celebrating this joyous occasion with our school community!
     `,
   },
   {

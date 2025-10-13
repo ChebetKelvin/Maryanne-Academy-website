@@ -37,7 +37,7 @@ export default function HomePage() {
           className="md:w-1/2 mb-10 md:mb-0 flex justify-center"
         >
           <img
-            src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHNjaG9vbHxlbnwwfHwwfHx8MA%3D%3D"
+            src="/maryanne.jpg"
             alt="Maryanne Academy Students"
             className="rounded-2xl shadow-lg w-full max-w-md object-cover"
           />

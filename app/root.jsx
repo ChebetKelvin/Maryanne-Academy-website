@@ -89,11 +89,11 @@ export function Layout({ children }) {
             <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center px-4 py-2 space-y-1 sm:space-y-0">
               <div className="flex items-center space-x-3">
                 <FaPhoneAlt className="text-xs" />
-                <span>0721395631/ 0726043156</span>
+                <span>0701011805</span>
               </div>
               <div className="flex items-center space-x-3">
                 <FaEnvelope className="text-xs" />
-                <span>maryaneschool@yahoo.com</span>
+                <span>academymaryanne@gmail.com</span>
               </div>
             </div>
           </div>

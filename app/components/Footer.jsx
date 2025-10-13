@@ -73,10 +73,10 @@ export default function Footer() {
             <li className="flex items-center gap-3">
               <FaPhoneAlt className="text-[#41a539]" />
               <a
-                href="tel:+254721395631"
+                href="tel:+254701011805"
                 className="hover:text-[#e32225] transition"
               >
-                0721395631
+                0701011805
               </a>
             </li>
             <li className="flex items-center gap-3">
@@ -85,7 +85,7 @@ export default function Footer() {
                 href="mailto:maryaneschool@yahoo.com"
                 className="hover:text-[#e32225] transition"
               >
-                maryaneschool@yahoo.com
+                academymaryanne@gmail.com
               </a>
             </li>
           </ul>

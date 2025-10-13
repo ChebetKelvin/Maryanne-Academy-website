@@ -135,7 +135,11 @@ export default function AdmissionPage({ actionData }) {
               <h3 className="text-[#41a539] font-bold text-2xl mb-2">
                 1. Registration
               </h3>
-              <p>Apply online or send your completed form to our office.</p>
+              <p>
+                Apply online or send your completed form to our office.
+                admissions fees of Kshs. 2,000/= is payable via MPESA paybill
+                no. 537521, account no. your full name.
+              </p>
             </div>
             <div>
               <h3 className="text-[#e32225] font-bold text-2xl mb-2">
@@ -313,8 +317,8 @@ export default function AdmissionPage({ actionData }) {
                     <option value="">Select class</option>
                     <optgroup label="Pre-Primary">
                       <option>Creche 2</option>
-                      <option>KG 1</option>
-                      <option>KG 2</option>
+                      <option>PP 1</option>
+                      <option>PP 2</option>
                     </optgroup>
                     <optgroup label="Primary">
                       <option>Grade 1</option>

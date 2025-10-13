@@ -71,20 +71,20 @@ export default function AcademicsPage() {
                 {[
                   {
                     term: "First Term",
-                    highlight: "Sports Event",
+                    highlight: "Cultural Events",
                     event: "Annual Sports Day",
                     date: "Saturday 13th July 2026",
                   },
                   {
                     term: "Second Term",
-                    highlight: "Cultural Events",
+                    highlight: "Sports Day",
                     event:
                       "Various cultural and creative school activities (to be scheduled)",
                     date: "Throughout Second Term 2026",
                   },
                   {
                     term: "Third Term",
-                    highlight: "Graduation",
+                    highlight: "Graduation Ceremony and Prayer Day",
                     event: "End-of-year Graduation Ceremony",
                     date: "End of Third Term 2026",
                   },

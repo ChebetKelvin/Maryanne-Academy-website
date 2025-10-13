@@ -124,7 +124,9 @@ export default function Contact() {
             <FaMapMarkerAlt className="text-[#e32225] text-2xl mr-4" />
             <div>
               <h3 className="font-semibold text-gray-700">Address</h3>
-              <p className="text-gray-600">Maryanne Academy Rd, Meru, Kenya</p>
+              <p className="text-gray-600">
+                Maryanne Academy, Meru-Maua rd, Kenya
+              </p>
             </div>
           </div>
 
@@ -132,7 +134,7 @@ export default function Contact() {
             <FaPhoneAlt className="text-[#e32225] text-2xl mr-4" />
             <div>
               <h3 className="font-semibold text-gray-700">Phone</h3>
-              <p className="text-gray-600">0721395631/ 0726043156</p>
+              <p className="text-gray-600">0701011805</p>
             </div>
           </div>
 
@@ -140,7 +142,7 @@ export default function Contact() {
             <FaEnvelope className="text-[#e32225] text-2xl mr-4" />
             <div>
               <h3 className="font-semibold text-gray-700">Email</h3>
-              <p className="text-gray-600">maryaneschool@yahoo.com</p>
+              <p className="text-gray-600">academymaryanne@gmail.com</p>
             </div>
           </div>
 
@@ -157,7 +159,7 @@ export default function Contact() {
             <div>
               <h3 className="font-semibold text-gray-700">WhatsApp</h3>
               <a
-                href="https://wa.me/25721395631"
+                href="https://wa.me/25701011805"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-green-500"

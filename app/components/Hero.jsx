@@ -28,14 +28,14 @@ export default function HeroSection() {
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <motion.a
-            href="#apply"
+            href="/admissions"
             className="bg-[#e32225] hover:bg-[#41a539] text-white px-8 py-3 rounded-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105"
             whileHover={{ scale: 1.1 }}
           >
             Apply Now
           </motion.a>
           <motion.a
-            href="#contact"
+            href="/contact"
             className="bg-[#41a539] hover:bg-[#e32225] text-white px-8 py-3 rounded-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105"
             whileHover={{ scale: 1.1 }}
           >
