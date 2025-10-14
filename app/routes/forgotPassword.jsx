@@ -1,7 +1,6 @@
-// app/routes/forgotPassword.jsx
 import { getUserByEmail } from "../models/user";
 import { createPasswordResetToken } from "../models/passwordreset";
-import nodemailer from "nodemailer";
+import { sendResetEmail } from "../.server/email"; // ✅ Use your existing email utility
 import {
   getSession,
   commitSession,
@@ -16,8 +15,8 @@ export async function action({ request }) {
   const formData = await request.formData();
   const email = formData.get("email");
 
+  // Step 1: Check if user exists
   const user = await getUserByEmail(email);
-
   if (!user) {
     setSuccessMessage(session, "No user found with that email.");
     return redirect("/forgot-password", {
@@ -25,46 +24,21 @@ export async function action({ request }) {
     });
   }
 
+  // Step 2: Create secure token
   const token = await createPasswordResetToken(email);
-  const resetUrl = `${process.env.SITE_URL || "https://academymaryanne.com"}/reset-password?token=${token}`;
+  const resetUrl = `${
+    process.env.SITE_URL || "https://academymaryanne.com"
+  }/reset-password?token=${token}`;
 
-  // Configure secure email transporter
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_PASS,
-    },
-  });
-
+  // Step 3: Send email
   try {
-    await transporter.sendMail({
-      from: `"Maryanne Academy" <${process.env.GMAIL_USER}>`,
-      to: email,
-      subject: "Password Reset Instructions",
-      html: `
-        <div style="font-family:Arial,sans-serif;line-height:1.5">
-          <h2 style="color:#e32225;">Password Reset Request</h2>
-          <p>Hi ${user.name || "there"},</p>
-          <p>You requested to reset your password. Click below to reset it:</p>
-          <a href="${resetUrl}" 
-            style="display:inline-block;padding:10px 16px;background:#41a539;color:white;
-            text-decoration:none;border-radius:6px;font-weight:bold;">
-            Reset Password
-          </a>
-          <p style="margin-top:20px;">If you didn’t request this, you can ignore this email.</p>
-        </div>
-      `,
-    });
+    await sendResetEmail(email, user.name, resetUrl);
+    setSuccessMessage(session, "Reset link sent! Check your email inbox.");
   } catch (err) {
-    console.error("Failed to send reset email:", err);
+    console.error(" Failed to send reset email:", err);
     setSuccessMessage(session, "Unable to send reset email at this time.");
-    return redirect("/forgot-password", {
-      headers: { "Set-Cookie": await commitSession(session) },
-    });
   }
 
-  setSuccessMessage(session, "Reset link sent! Check your email inbox.");
   return redirect("/forgot-password", {
     headers: { "Set-Cookie": await commitSession(session) },
   });
