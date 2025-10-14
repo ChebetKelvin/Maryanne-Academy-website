@@ -4,7 +4,7 @@ import { FaCheckCircle, FaBookOpen, FaHeart, FaUsers } from "react-icons/fa";
 
 export default function HomePage() {
   return (
-    <div className="font-sans text-gray-800">
+    <main className="font-sans text-gray-800">
       {/* HERO SECTION */}
       <section className="flex flex-col-reverse md:flex-row items-center justify-between py-16 px-6 md:px-12 lg:px-20 bg-gray-50">
         {/* TEXT CONTENT */}
@@ -24,6 +24,7 @@ export default function HomePage() {
           <Link
             to="/about"
             className="inline-block bg-[#41a539] hover:bg-[#368c30] text-white font-semibold px-6 py-3 rounded-lg transition"
+            aria-label="Learn more about Maryanne Academy"
           >
             Learn More
           </Link>
@@ -93,6 +94,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

@@ -19,6 +19,7 @@ import {
   getSession,
   setSuccessMessage,
 } from "../.server/session";
+import { Helmet } from "react-helmet"; // added for SEO/meta tags
 
 export async function action({ request }) {
   let session = await getSession(request.headers.get("Cookie"));
@@ -75,6 +76,11 @@ export default function Contact() {
     }
   }, [isSubmitting]);
 
+  // fixed production URL
+  const siteUrl = "https://academymaryanne.com";
+  const canonical = `${siteUrl}/contact`;
+  const ogImage = `${siteUrl}/images/contact-hero.jpg`; // ensure this exists in production
+
   const faqs = [
     {
       question: "How can I enroll my child?",
@@ -103,176 +109,241 @@ export default function Contact() {
   };
 
   return (
-    <section className="bg-gray-50 mt-20">
-      {/* ===== HEADER ===== */}
-      <div className="max-w-6xl mx-auto px-6 py-16 text-center">
-        <h1 className="text-4xl font-bold text-[#41a539] mb-4">Contact Us</h1>
-        <p className="text-gray-700 max-w-2xl mx-auto">
-          Have questions or need more information? Reach out to us and we’ll get
-          back to you promptly.
-        </p>
-      </div>
+    <>
+      <Helmet>
+        <html lang="en" />
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 mb-16">
-        {/* ===== CONTACT DETAILS CARDS ===== */}
-        <div className="space-y-6">
-          <h2 className="text-2xl font-semibold text-[#e32225] mb-4">
-            Our Contact Information
-          </h2>
+        <title>Contact Maryanne Academy, Meru | Admissions & Enquiries</title>
+        <meta
+          name="description"
+          content="Contact Maryanne Academy in Meru, Kenya. Call, email, or visit us for admissions, school tours, or general enquiries. We’re open Mon–Fri, 8:00–16:00."
+        />
+        <link rel="canonical" href={canonical} />
+        <meta name="robots" content="index,follow" />
 
-          <div className="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-lg transition transform hover:scale-105">
-            <FaMapMarkerAlt className="text-[#e32225] text-2xl mr-4" />
-            <div>
-              <h3 className="font-semibold text-gray-700">Address</h3>
-              <p className="text-gray-600">
-                Maryanne Academy, Meru-Maua rd, Kenya
-              </p>
-            </div>
-          </div>
+        {/* Open Graph */}
+        <meta property="og:title" content="Contact Maryanne Academy, Meru" />
+        <meta
+          property="og:description"
+          content="Reach Maryanne Academy for admissions and school enquiries. Call 0701011805 or email academymaryanne@gmail.com."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:alt" content="Maryanne Academy Meru campus" />
+        <meta property="og:locale" content="en_KE" />
 
-          <div className="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-lg transition transform hover:scale-105">
-            <FaPhoneAlt className="text-[#e32225] text-2xl mr-4" />
-            <div>
-              <h3 className="font-semibold text-gray-700">Phone</h3>
-              <p className="text-gray-600">0701011805</p>
-            </div>
-          </div>
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Maryanne Academy" />
+        <meta
+          name="twitter:description"
+          content="Contact Maryanne Academy for admissions and enquiries. Phone 0701011805, email academymaryanne@gmail.com."
+        />
+        <meta name="twitter:image" content={ogImage} />
 
-          <div className="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-lg transition transform hover:scale-105">
-            <FaEnvelope className="text-[#e32225] text-2xl mr-4" />
-            <div>
-              <h3 className="font-semibold text-gray-700">Email</h3>
-              <p className="text-gray-600">academymaryanne@gmail.com</p>
-            </div>
-          </div>
+        {/* JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                name: "Maryanne Academy",
+                url: siteUrl,
+                logo: `${siteUrl}/images/maryanne-logo.png`,
+                contactPoint: [
+                  {
+                    "@type": "ContactPoint",
+                    telephone: "+254701011805",
+                    contactType: "customer service",
+                    areaServed: "KE",
+                    availableLanguage: "en",
+                  },
+                ],
+              },
+              {
+                "@type": "ContactPage",
+                url: canonical,
+                mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+              },
+            ],
+          })}
+        </script>
+      </Helmet>
 
-          <div className="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-lg transition transform hover:scale-105">
-            <FaClock className="text-[#e32225] text-2xl mr-4" />
-            <div>
-              <h3 className="font-semibold text-gray-700">Office Hours</h3>
-              <p className="text-gray-600">Mon – Fri, 8:00 AM – 5:00 PM</p>
-            </div>
-          </div>
-
-          <div className="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-lg transition transform hover:scale-105 cursor-pointer">
-            <FaWhatsapp className="text-green-500 text-2xl mr-4" />
-            <div>
-              <h3 className="font-semibold text-gray-700">WhatsApp</h3>
-              <a
-                href="https://wa.me/25701011805"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-green-500"
-              >
-                Chat with us
-              </a>
-            </div>
-          </div>
+      <section className="bg-gray-50 mt-20">
+        {/* ===== HEADER ===== */}
+        <div className="max-w-6xl mx-auto px-6 py-16 text-center">
+          <h1 className="text-4xl font-bold text-[#41a539] mb-4">Contact Us</h1>
+          <p className="text-gray-700 max-w-2xl mx-auto">
+            Have questions or need more information? Reach out to us and we’ll
+            get back to you promptly.
+          </p>
         </div>
 
-        {/* ===== CONTACT FORM ===== */}
-        <Form
-          method="post"
-          className="bg-white p-8 rounded-2xl shadow-lg space-y-6"
-          ref={formRef}
-        >
-          <h2 className="text-2xl font-semibold text-[#e32225] mb-4">
-            Send Us a Message
-          </h2>
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 mb-16">
+          {/* ===== CONTACT DETAILS CARDS ===== */}
+          <div className="space-y-6">
+            <h2 className="text-2xl font-semibold text-[#e32225] mb-4">
+              Our Contact Information
+            </h2>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              required
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#41a539] focus:border-[#41a539]"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              required
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#41a539] focus:border-[#41a539]"
-            />
+            <div className="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-lg transition transform hover:scale-105">
+              <FaMapMarkerAlt className="text-[#e32225] text-2xl mr-4" />
+              <div>
+                <h3 className="font-semibold text-gray-700">Address</h3>
+                <p className="text-gray-600">
+                  Maryanne Academy, Meru-Maua rd, Kenya
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-lg transition transform hover:scale-105">
+              <FaPhoneAlt className="text-[#e32225] text-2xl mr-4" />
+              <div>
+                <h3 className="font-semibold text-gray-700">Phone</h3>
+                <p className="text-gray-600">0701011805</p>
+              </div>
+            </div>
+
+            <div className="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-lg transition transform hover:scale-105">
+              <FaEnvelope className="text-[#e32225] text-2xl mr-4" />
+              <div>
+                <h3 className="font-semibold text-gray-700">Email</h3>
+                <p className="text-gray-600">academymaryanne@gmail.com</p>
+              </div>
+            </div>
+
+            <div className="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-lg transition transform hover:scale-105">
+              <FaClock className="text-[#e32225] text-2xl mr-4" />
+              <div>
+                <h3 className="font-semibold text-gray-700">Office Hours</h3>
+                <p className="text-gray-600">Mon – Fri, 8:00 AM – 5:00 PM</p>
+              </div>
+            </div>
+
+            <div className="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-lg transition transform hover:scale-105 cursor-pointer">
+              <FaWhatsapp className="text-green-500 text-2xl mr-4" />
+              <div>
+                <h3 className="font-semibold text-gray-700">WhatsApp</h3>
+                <a
+                  href="https://wa.me/254701011805"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-green-500"
+                >
+                  Chat with us
+                </a>
+              </div>
+            </div>
           </div>
 
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Your Phone Number"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#41a539] focus:border-[#41a539]"
-          />
+          {/* ===== CONTACT FORM ===== */}
+          <Form
+            method="post"
+            className="bg-white p-8 rounded-2xl shadow-lg space-y-6"
+            ref={formRef}
+          >
+            <h2 className="text-2xl font-semibold text-[#e32225] mb-4">
+              Send Us a Message
+            </h2>
 
-          <textarea
-            name="message"
-            rows="5"
-            placeholder="Your Message"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#41a539] focus:border-[#41a539]"
-          />
+            <div className="grid md:grid-cols-2 gap-6">
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#41a539] focus:border-[#41a539]"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#41a539] focus:border-[#41a539]"
+              />
+            </div>
 
-          <div className="text-center">
-            <button
-              type="submit"
-              className="bg-[#41a539] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#358a30] transition"
-            >
-              {isSubmitting ? "Sending..." : "Send Message"}
-            </button>
-          </div>
-        </Form>
-      </div>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Your Phone Number"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#41a539] focus:border-[#41a539]"
+            />
 
-      {/* ===== MAP SECTION ===== */}
-      <div className="max-w-6xl mx-auto px-6 mb-16">
-        <h2 className="text-2xl font-semibold text-[#e32225] mb-4">
-          Find Us Here
-        </h2>
-        <div className="w-full h-100 rounded-lg overflow-hidden shadow-lg">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8159920402913!2d37.65393167501209!3d0.061898599937490424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x17882308858641d1%3A0x39937b9aa7317516!2sMARYANNE%20ACADEMY%20MERU!5e0!3m2!1sen!2ske!4v1759832934142!5m2!1sen!2ske
-            "
-            width="100%"
-            height="100%"
-            allowFullScreen=""
-            loading="lazy"
-            className="border-0"
-          ></iframe>
-        </div>
-      </div>
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="Your Message"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#41a539] focus:border-[#41a539]"
+            />
 
-      {/* ===== FAQ SECTION ===== */}
-      <div className="max-w-6xl mx-auto px-6 pb-5">
-        <h2 className="text-2xl font-semibold text-[#e32225] mb-6 text-center">
-          Frequently Asked Questions
-        </h2>
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-lg overflow-hidden"
-            >
+            <div className="text-center">
               <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full flex justify-between items-center p-4 text-left focus:outline-none hover:bg-gray-100 transition"
+                type="submit"
+                className="bg-[#41a539] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#358a30] transition"
               >
-                <span className="font-semibold text-gray-700">
-                  {faq.question}
-                </span>
-                <FaChevronDown
-                  className={`text-gray-600 transition-transform duration-300 ${
-                    activeIndex === index ? "rotate-180" : ""
-                  }`}
-                />
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
-              {activeIndex === index && (
-                <div className="p-4 border-t border-gray-200 text-gray-600">
-                  {faq.answer}
-                </div>
-              )}
             </div>
-          ))}
+          </Form>
         </div>
-      </div>
-    </section>
+
+        {/* ===== MAP SECTION ===== */}
+        <div className="max-w-6xl mx-auto px-6 mb-16">
+          <h2 className="text-2xl font-semibold text-[#e32225] mb-4">
+            Find Us Here
+          </h2>
+          <div className="w-full h-100 rounded-lg overflow-hidden shadow-lg">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8159920402913!2d37.65393167501209!3d0.061898599937490424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x17882308858641d1%3A0x39937b9aa7317516!2sMARYANNE%20ACADEMY%20MERU!5e0!3m2!1sen!2ske!4v1759832934142!5m2!1sen!2ske"
+              width="100%"
+              height="100%"
+              allowFullScreen=""
+              loading="lazy"
+              className="border-0"
+            ></iframe>
+          </div>
+        </div>
+
+        {/* ===== FAQ SECTION ===== */}
+        <div className="max-w-6xl mx-auto px-6 pb-5">
+          <h2 className="text-2xl font-semibold text-[#e32225] mb-6 text-center">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-lg overflow-hidden"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full flex justify-between items-center p-4 text-left focus:outline-none hover:bg-gray-100 transition"
+                >
+                  <span className="font-semibold text-gray-700">
+                    {faq.question}
+                  </span>
+                  <FaChevronDown
+                    className={`text-gray-600 transition-transform duration-300 ${
+                      activeIndex === index ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {activeIndex === index && (
+                  <div className="p-4 border-t border-gray-200 text-gray-600">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

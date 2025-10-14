@@ -1,9 +1,78 @@
 import { motion } from "framer-motion";
 import { FaBookOpen, FaChild, FaChalkboardTeacher } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 export default function AcademicsPage() {
   return (
     <div className="font-sans text-gray-800">
+      <Helmet>
+        <title>
+          Academics | Maryanne Academy — Nurturing Learners for Excellence
+        </title>
+        <meta
+          name="description"
+          content="Discover Maryanne Academy’s academic programs — from Pre-Primary to Upper Primary. Explore our CBC-based learning, class structure, and 2026 academic calendar."
+        />
+        <link rel="canonical" href="https://academymaryanne.com/academics" />
+        <meta name="robots" content="index,follow" />
+        <meta name="author" content="Maryanne Academy" />
+        <meta
+          name="keywords"
+          content="Maryanne Academy academics, CBC curriculum Kenya, primary school Meru, pre-primary education, upper primary"
+        />
+
+        {/* ✅ Open Graph */}
+        <meta property="og:title" content="Academics | Maryanne Academy" />
+        <meta
+          property="og:description"
+          content="Explore our academic programs, curriculum, and school calendar at Maryanne Academy."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://academymaryanne.com/academics"
+        />
+        <meta
+          property="og:image"
+          content="https://academymaryanne.com/images/academics-hero.jpg"
+        />
+        <meta property="og:image:alt" content="Maryanne Academy classrooms" />
+        <meta property="og:locale" content="en_KE" />
+
+        {/* ✅ Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@maryanneacademy" />
+        <meta
+          name="twitter:title"
+          content="Academics | Maryanne Academy — Building Bright Futures"
+        />
+        <meta
+          name="twitter:description"
+          content="Learn about our academic programs, teaching philosophy, and class structure at Maryanne Academy."
+        />
+        <meta
+          name="twitter:image"
+          content="https://academymaryanne.com/images/academics-hero.jpg"
+        />
+
+        {/* ✅ Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Academics - Maryanne Academy",
+            description:
+              "Explore Maryanne Academy’s academic programs — Pre-Primary, Lower Primary, and Upper Primary — aligned with Kenya’s CBC curriculum.",
+            url: "https://academymaryanne.com/academics",
+            publisher: {
+              "@type": "Organization",
+              name: "Maryanne Academy",
+              logo: "https://academymaryanne.com/images/maryanne-logo.png",
+            },
+          })}
+        </script>
+      </Helmet>
+
       {/* ===== HERO SECTION ===== */}
       <section
         className="relative bg-fixed bg-center bg-cover min-h-[80vh] flex items-center justify-center"

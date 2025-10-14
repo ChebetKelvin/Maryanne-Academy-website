@@ -19,7 +19,8 @@ export default function HeroSection() {
         transition={{ duration: 1 }}
       >
         <h1 className="text-4xl sm:text-6xl font-bold mb-4">
-          Join Maryanne Academy — January 2026 Intake Now Open!
+          Maryanne Academy, Meru — Nurturing Excellence from Early Years to
+          Primary
         </h1>
         <p className="text-lg sm:text-xl text-gray-200 mb-8">
           A nurturing environment for academic excellence, discipline, and
@@ -29,6 +30,7 @@ export default function HeroSection() {
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <motion.a
             href="/admissions"
+            aria-label="Apply for admission at Maryanne Academy"
             className="bg-[#e32225] hover:bg-[#41a539] text-white px-8 py-3 rounded-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105"
             whileHover={{ scale: 1.1 }}
           >

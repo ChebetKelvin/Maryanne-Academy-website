@@ -1,6 +1,7 @@
 import { FaGraduationCap, FaHeart, FaUsers, FaUserPlus } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Link } from "react-router";
+import { Helmet } from "react-helmet";
 
 export default function AboutPage() {
   const fadeUp = {
@@ -14,8 +15,95 @@ export default function AboutPage() {
 
   return (
     <div className="font-sans text-gray-800 mt-20">
-      {/* 1. Intro Section */}
-      {/* 1. Intro Section with Parallax Background */}
+      <Helmet>
+        <title>About Maryanne Academy | Excellence in Holistic Education</title>
+        <meta
+          name="description"
+          content="Maryanne Academy in Meru, Kenya — a nurturing school delivering holistic education from early years through primary with strong academic and co-curricular programs."
+        />
+        <meta name="robots" content="index,follow" />
+        <meta name="author" content="Maryanne Academy" />
+        <link rel="canonical" href="https://www.academymaryanne.com/about" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="About Maryanne Academy" />
+        <meta
+          property="og:description"
+          content="Maryanne Academy empowers young learners with quality education, character building, and co-curricular opportunities in Meru, Kenya."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://www.academymaryanne.com/about"
+        />
+        <meta
+          property="og:image"
+          content="https://www.academymaryanne.com/images/maryanne-logo.png"
+        />
+        <meta property="og:image:alt" content="Maryanne Academy logo" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="en_KE" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="About Maryanne Academy | Nurturing Excellence"
+        />
+        <meta
+          name="twitter:description"
+          content="A caring school in Meru offering academic excellence, creativity, and moral formation for young learners."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.academymaryanne.com/images/maryanne-logo.png"
+        />
+        <meta name="twitter:image:alt" content="Maryanne Academy logo" />
+        <meta name="twitter:site" content="@maryanneacademy" />
+        <meta name="twitter:creator" content="@maryanneacademy" />
+
+        {/* Structured Data (Organization + School) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                name: "Maryanne Academy",
+                url: "https://www.academymaryanne.com",
+                logo: "https://www.academymaryanne.com/images/maryanne-logo.png",
+                sameAs: [
+                  "https://www.facebook.com/maryanneacademy",
+                  "https://www.instagram.com/maryanneacademy",
+                ],
+                contactPoint: [
+                  {
+                    "@type": "ContactPoint",
+                    telephone: "+254709018805",
+                    contactType: "customer service",
+                    areaServed: "KE",
+                    availableLanguage: "en",
+                  },
+                ],
+              },
+              {
+                "@type": "School",
+                name: "Maryanne Academy",
+                url: "https://www.academymaryanne.com",
+                logo: "https://www.academymaryanne.com/images/maryanne-logo.png",
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: "Meru",
+                  addressCountry: "KE",
+                },
+                description:
+                  "Maryanne Academy is a private school in Meru offering quality CBC education from Pre-Primary to Grade 6 with holistic child development.",
+              },
+            ],
+          })}
+        </script>
+      </Helmet>
       <section
         className="relative py-24 bg-fixed bg-bottom bg-cover bg-no-repeat"
         style={{
@@ -45,8 +133,8 @@ export default function AboutPage() {
           <div className="relative">
             <img
               src="/maryanne-logo.png"
-              alt="Maryanne Academy building"
-              className="rounded-2xl  shadow-lg w-70 h-70 object-cover border-4 border-white"
+              alt="Maryanne Academy logo"
+              className="rounded-2xl shadow-lg w-72 h-72 md:w-96 md:h-96 object-cover border-4 border-white"
             />
           </div>
         </div>
@@ -63,7 +151,7 @@ export default function AboutPage() {
               <FaGraduationCap className="text-5xl text-[#41a539] mx-auto mb-4" />
               <h3 className="font-bold text-xl mb-2">Our Mission</h3>
               <p>
-                To pro-actively and deligently engage in individual child
+                To pro-actively and diligently engage in individual child
                 development through education, counseling and advocacy of
                 children
               </p>
@@ -81,7 +169,7 @@ export default function AboutPage() {
             <div className="p-6 bg-gray-50 rounded-2xl shadow hover:shadow-md transition">
               <FaUsers className="text-5xl text-[#41a539] mx-auto mb-4" />
               <h3 className="font-bold text-xl mb-2">Our Values</h3>
-              <p>Deligence, Honesty, Excellence and Discipline.</p>
+              <p>Diligence, Honesty, Excellence and Discipline.</p>
             </div>
           </div>
         </div>
@@ -322,7 +410,7 @@ export default function AboutPage() {
       <section
         className="relative bg-fixed bg-center bg-cover py-32 text-white text-center"
         style={{
-          backgroundImage: "url('/shcool-bg.jpg')", // Change to your image path
+          backgroundImage: "url('/school-bg1.jpg')", // use consistent/valid image path
         }}
       >
         <div className="absolute inset-0 bg-black/30"></div>

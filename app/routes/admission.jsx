@@ -10,6 +10,7 @@ import {
   setSuccessMessage,
 } from "../.server/session";
 import { useRef, useEffect } from "react";
+import { Helmet } from "react-helmet"; // added for SEO/meta tags
 
 export async function action({ request }) {
   let session = await getSession(request.headers.get("Cookie"));
@@ -82,12 +83,88 @@ export default function AdmissionPage({ actionData }) {
       formRef.current?.reset();
     }
   }, [isSubmitting]);
+
+  // use a fixed production URL instead of reading from env
+  const siteUrl = "https://maryanneacademy.co.ke";
+  const canonical = `${siteUrl}/admission`;
+  const ogImage = `${siteUrl}/admissions-hero.jpg`; // ensure this exists in production
+
   return (
     <div className="font-sans text-gray-800 mt-20">
+      <Helmet>
+        {/* ✅ Core SEO */}
+        <title>
+          Admission | Maryanne Academy — Apply Online for Pre-Primary & Primary
+        </title>
+        <meta
+          name="description"
+          content="Apply online for admission to Maryanne Academy, a leading pre-primary and primary school in Kenya. Submit student details and required documents securely online."
+        />
+        <link rel="canonical" href="https://academymaryanne.com/admission" />
+        <meta name="robots" content="index,follow" />
+        <meta name="author" content="Maryanne Academy" />
+        <meta
+          name="keywords"
+          content="Maryanne Academy admissions, school application, pre-primary, primary school Kenya, apply online"
+        />
+
+        {/* ✅ Open Graph / Facebook */}
+        <meta property="og:title" content="Admission | Maryanne Academy" />
+        <meta
+          property="og:description"
+          content="Apply to Maryanne Academy for pre-primary and primary levels. Online school admission process and requirements."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://academymaryanne.com/admission"
+        />
+        <meta
+          property="og:image"
+          content="https://academymaryanne.com/images/admissions-hero.jpg"
+        />
+        <meta property="og:image:alt" content="Maryanne Academy Admissions" />
+        <meta property="og:locale" content="en_KE" />
+
+        {/* ✅ Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@maryanneacademy" />
+        <meta
+          name="twitter:title"
+          content="Admission | Maryanne Academy — Apply Online"
+        />
+        <meta
+          name="twitter:description"
+          content="Online admission form for Maryanne Academy. Apply for Pre-Primary and Primary levels easily."
+        />
+        <meta
+          name="twitter:image"
+          content="https://academymaryanne.com/images/admissions-hero.jpg"
+        />
+
+        {/* ✅ Structured Data / JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Admission - Maryanne Academy",
+            description:
+              "Official admission page for Maryanne Academy. Apply for Pre-Primary and Primary levels online.",
+            url: "https://academymaryanne.com/admission",
+            publisher: {
+              "@type": "Organization",
+              name: "Maryanne Academy",
+              logo: "https://academymaryanne.com/images/maryanne-logo.png",
+            },
+          })}
+        </script>
+      </Helmet>
+
       {/* 1. HERO SECTION */}
       <section
         className="relative bg-fixed bg-center bg-cover min-h-[70vh] flex items-center justify-center"
         style={{ backgroundImage: "url('/science1.jpg')" }}
+        aria-label="Admissions hero"
       >
         <div className="absolute inset-0 bg-black/70"></div>
         <motion.div
@@ -167,7 +244,7 @@ export default function AdmissionPage({ actionData }) {
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center text-[#e32225] mb-10">
-            Application Form
+            Online Application Form
           </h2>
 
           <Form
