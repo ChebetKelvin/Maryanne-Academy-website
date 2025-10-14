@@ -15,4 +15,6 @@ export default [
   route("admin/applications/:id", "routes/applicationDetails.jsx"),
   route("admin/messages", "routes/message.jsx"),
   route("admin/reports", "routes/report.jsx"),
+  route("forgot-password", "routes/forgotPassword.jsx"),
+  route("reset-password/:token", "routes/resetPassword.jsx"),
 ];
