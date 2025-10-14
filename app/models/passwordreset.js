@@ -1,5 +1,5 @@
 import { client } from "../.server/mongo";
-import crypto from "crypto";
+import crypto from "node:crypto";
 
 let db = client.db("Maryanne");
 let collection = db.collection("password_resets");
