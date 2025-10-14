@@ -98,19 +98,19 @@ export default function Footer() {
           </h3>
           <div className="flex gap-4">
             <a
-              href="#"
+              href="https://web.facebook.com/p/Maryanne-Academy-and-Junior-High-61553720676210/?_rdc=1&_rdr#"
               className="bg-[#41a539] text-white p-2 rounded-full hover:bg-[#368c30] transition"
             >
               <FaFacebookF />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/maryanneacademy?igsh=MTB3eWkxa2g1Yzh5Yg=="
               className="bg-[#41a539] text-white p-2 rounded-full hover:bg-[#368c30] transition"
             >
               <FaInstagram />
             </a>
             <a
-              href="mailto:info@maryanneacademy.ac.ke"
+              href="mailto:academymaryanne@gmail.com"
               className="bg-[#41a539] text-white p-2 rounded-full hover:bg-[#368c30] transition"
             >
               <FaEnvelope />
